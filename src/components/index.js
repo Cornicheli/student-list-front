@@ -1,7 +1,5 @@
-import InputMail from "./InputMail";
-import InputPass from "./InputPass";
+import NavBar from "./Navbar";
 
 export{
-    InputMail,
-    InputPass
+   NavBar
 }

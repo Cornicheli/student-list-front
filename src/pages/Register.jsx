@@ -3,7 +3,7 @@ import { NavBar } from "../components";
 import { Link } from "react-router-dom";
 import "../assets/login.css";
 
-export default function Login() {
+export default function Register() {
   return (
     <>
       {/* <header> */}
@@ -37,12 +37,12 @@ export default function Login() {
               />
             </div>
             <button type="submit" className="btn btn-primary">
-              Ingresar
+              Registrarse
             </button>
             <p className="mt-4 text-light">
-              No tenes cuenta ?{" "}
-              <Link className="text-light" to="/register">
-                Registrate
+              Ya tenes cuenta ?{" "}
+              <Link className="text-light" to="/">
+                Ingresa
               </Link>
             </p>
           </form>

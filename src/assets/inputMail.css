@@ -1,0 +1,19 @@
+.ctn-mail{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    margin-bottom: 15px;
+    color: white;
+}
+.email{
+    width: 250px;
+    height: 35px;
+    border-radius: 6px;
+    padding: 10px;
+    color: black;
+    background-color: #ffffffa1;
+    border: none;
+}
+.email:focus-visible{
+    outline: none;
+}

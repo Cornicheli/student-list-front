@@ -1,68 +1,75 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-	font-family: Raleway, sans-serif;
-
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: Raleway, sans-serif;
 }
 .ctn-main-login {
-    min-height: 100vh;
-    background-image: url(../public/bg-nat.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+  min-height: 100vh;
+  background-image: url("./bg-nat.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.title-login{
-    height: 70px;
-    text-align: center;
-    color: white;
-    font-size: 50px;
+.title-login {
+  height: 70px;
+  text-align: center;
+  color: white;
+  font-size: 50px;
 }
-.main-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid 3px black;
-    height: 400px;
-    width: 350px;
-    border-radius: 18px;
-    background-color: rgb(17 24 39 / 64%);
+.main-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 3px black;
+  height: 400px;
+  width: 350px;
+  border-radius: 18px;
+  background-color: rgb(17 24 39 / 64%);
 }
-.form-login{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
+.form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
 }
-.btn-login{
-    margin-top: 50px;
+.btn-login {
+  margin-top: 50px;
 }
-.btn-login:hover{
-    transition: 0.5s;       
+.btn-login:hover {
+  transition: 0.5s;
 }
-.btn-login:focus-visible{
-    border-radius: 2px white solid;
-    transition: 0.5s;
-}
-
-.subtitle-login{
-    height: 70px;
-    text-align: center;
-    color: white;
-    font-size: 20px;
+.btn-login:focus-visible {
+  border-radius: 2px white solid;
+  transition: 0.5s;
 }
 
+.subtitle-login {
+  height: 70px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
 
+.btn-face {
+  font-size: 18px;
+  width: 200px;
+  height: 40px;
+  background-color: #0b5ed7;
+  color: white;
+  border-radius: 16px;
+  margin-top: 10px;
+}
 
 @media only screen and (max-width: 375px) {
-    .main-login{
-        transition: 0.5s;
-        width: 300px;
-    }
-    /* .collapse{
+  .main-login {
+    transition: 0.5s;
+    width: 300px;
+  }
+  /* .collapse{
         margin-left: 105px;
         margin-top: 220px;
         position: absolute;
     } */
-  }
+}

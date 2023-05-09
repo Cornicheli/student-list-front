@@ -1,9 +1,11 @@
-import React from "react";
 import { NavBar } from "../components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import FacebookLogin from "react-facebook-login";
 import "../assets/login.css";
 
 export default function Login() {
+  const responseFacebook = () => {};
+
   return (
     <>
       {/* <header> */}
@@ -13,7 +15,7 @@ export default function Login() {
         <section className="main-login">
           <form className="w-75">
             <div className="mb-4 w-100">
-              <label for="exampleInputEmail1" className="form-label text-light">
+              <label key="exampleInputEmail1" className="form-label text-light">
                 Mail
               </label>
               <input
@@ -25,7 +27,7 @@ export default function Login() {
             </div>
             <div className="mb-4 w-100">
               <label
-                for="exampleInputPassword1"
+                key="exampleInputPassword1"
                 className="form-label text-light"
               >
                 Contraseña
@@ -39,11 +41,22 @@ export default function Login() {
             <button type="submit" className="btn btn-primary">
               Ingresar
             </button>
+
+            <FacebookLogin
+              appId="1627158034427307"
+              autoLoad={false}
+              fields="name,email,picture"
+              callback={responseFacebook}
+              textButton="Iniciar con Facebook"
+              // icon="fa-facebook"
+              cssClass="btn-face"
+            />
+
             <p className="mt-4 text-light">
               No tenes cuenta ?{" "}
-              <Link className="text-light" to="/register">
+              <NavLink className="text-light" to="/register">
                 Registrate
-              </Link>
+              </NavLink>
             </p>
           </form>
         </section>

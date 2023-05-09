@@ -1,13 +1,12 @@
 import { NavBar } from "../components";
 import { NavLink } from "react-router-dom";
+
 import "../assets/login.css";
 
 export default function Register() {
   return (
     <>
-      {/* <header> */}
       <NavBar />
-      {/* </header> */}
       <main className="ctn-main-login h-100 d-flex  flex-column align-items-center justify-content-center">
         <section className="main-login">
           <form className="w-75">
@@ -38,7 +37,6 @@ export default function Register() {
             <button type="submit" className="btn btn-primary">
               Registrarse
             </button>
-
             <p className="mt-4 text-light">
               Ya tenes cuenta ?{" "}
               <NavLink className="text-light" to="/">

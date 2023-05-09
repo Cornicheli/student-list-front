@@ -53,13 +53,12 @@
 }
 
 .btn-face {
-  font-size: 18px;
-  width: 200px;
-  height: 40px;
+  width: 100px;
+  height: 43px;
   background-color: #0b5ed7;
   color: white;
-  border-radius: 16px;
-  margin-top: 10px;
+  border: none;
+  font-size: 14px;
 }
 
 @media only screen and (max-width: 375px) {

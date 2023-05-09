@@ -1,6 +1,5 @@
-import React from "react";
 import { NavBar } from "../components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../assets/login.css";
 
 export default function Register() {
@@ -13,7 +12,7 @@ export default function Register() {
         <section className="main-login">
           <form className="w-75">
             <div className="mb-4 w-100">
-              <label for="exampleInputEmail1" className="form-label text-light">
+              <label key="exampleInputEmail1" className="form-label text-light">
                 Mail
               </label>
               <input
@@ -25,7 +24,7 @@ export default function Register() {
             </div>
             <div className="mb-4 w-100">
               <label
-                for="exampleInputPassword1"
+                key="exampleInputPassword1"
                 className="form-label text-light"
               >
                 Contraseña
@@ -39,11 +38,12 @@ export default function Register() {
             <button type="submit" className="btn btn-primary">
               Registrarse
             </button>
+
             <p className="mt-4 text-light">
               Ya tenes cuenta ?{" "}
-              <Link className="text-light" to="/">
+              <NavLink className="text-light" to="/">
                 Ingresa
-              </Link>
+              </NavLink>
             </p>
           </form>
         </section>

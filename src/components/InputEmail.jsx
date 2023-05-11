@@ -2,6 +2,7 @@ import "../assets/login.css";
 
 export const InputEmail = (props) => {
   const { mail } = props;
+
   return (
     <>
       <div className="mb-4 w-100">
@@ -10,7 +11,6 @@ export const InputEmail = (props) => {
         </label>
         <input
           type="email"
-          z
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"

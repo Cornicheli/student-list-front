@@ -1,14 +1,13 @@
 import { NavBar } from "../components";
 import { NavLink } from "react-router-dom";
-import GoogleLogin from "react-google-login";
-import FacebookLogin from "react-facebook-login";
+// import GoogleLogin from "react-google-login";
+// import FacebookLogin from "react-facebook-login";
 import { InputEmail, InputPass, Button } from "../components";
 import "../assets/login.css";
 
-export default function Login() {
-  const responseFacebook = () => {};
-
-  const responseGoogle = () => {};
+export const Login = () => {
+  // const responseFacebook = () => {};
+  // const responseGoogle = () => {};
 
   return (
     <>
@@ -21,7 +20,7 @@ export default function Login() {
             <Button text="Ingresar" />
 
             <div className="d-flex">
-              <div className="m-1">
+              {/* <div className="m-1">
                 <GoogleLogin
                   clientId="638343180841-ibmdoc1jr0o6i77aooppkq392541lde6.apps.googleusercontent.com"
                   buttonText="Login"
@@ -29,8 +28,8 @@ export default function Login() {
                   onFailure={responseGoogle}
                   cookiePolicy={"single_host_origin"}
                 />
-              </div>
-              <div className="m-1">
+              </div> */}
+              {/* <div className="m-1">
                 <FacebookLogin
                   appId="1627158034427307"
                   autoLoad={false}
@@ -40,11 +39,11 @@ export default function Login() {
                   icon="fa-facebook"
                   cssClass="btn-face"
                 />
-              </div>
+              </div> */}
             </div>
             <p className="mt-4 text-light">
               No tenes cuenta ?{" "}
-              <NavLink className="text-light" to="/register">
+              <NavLink className="text-light" to="/signup">
                 Registrate
               </NavLink>
             </p>
@@ -54,3 +53,4 @@ export default function Login() {
     </>
   );
 }
+export default Login

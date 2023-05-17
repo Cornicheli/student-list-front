@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -37,14 +37,14 @@ export default function Navbar() {
                   aria-labelledby="navbarDarkDropdownMenuLink"
                 >
                   <li>
-                    <NavLink className="dropdown-item" to="/">
+                    <Link  className="dropdown-item" to="/">
                       Lunes
-                    </NavLink>
+                    </Link >
                   </li>
                   <li>
-                    <NavLink className="dropdown-item" to="/register">
+                    <Link  className="dropdown-item" to="/signup">
                       Martes
-                    </NavLink>
+                    </Link >
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">

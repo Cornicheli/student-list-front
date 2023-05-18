@@ -1,2 +1,1 @@
-const API = "http://localhost:8000"
-export default API
+export const BASE_URL = "http://localhost:8000"

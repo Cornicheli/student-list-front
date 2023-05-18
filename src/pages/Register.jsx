@@ -21,13 +21,20 @@ const Register = () => {
   }
 
   const handleOnSubmit = async (e) => {
-    e.preventDefault();
-    if(!e.target.checkValidity()){
-      console.log('no enviado')
-    }else{
-      let res = await axios.post(`${BASE_URL}/auth/signup`,formData)
-      console.log(res.data)
+    try {
+      e.preventDefault();
+      if(!e.target.checkValidity()){
+        console.log('no enviado')
+      }else{
+        let res = await axios.post(`${BASE_URL}/auth/signup`,formData)
+        console.log(res.data)
+      }
+    } catch (error) {
+      console.log(error)
     }
+
+
+    
   };
 
   return (

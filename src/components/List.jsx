@@ -5,17 +5,43 @@ import axios from 'axios'
 
 const List = () => {
 
-    const [alumnos, setAlumnos] = useState([])
+    const [busqueda, setBusqueda] = useState('')
+    const [students, setStudents] = useState([])
 
     const getStudents = async () => {
         const alumno = await axios.get(`${BASE_URL}/alumno/read`);
         console.log(alumno.data.res)
         const usersMap = alumno.data.res
-        setAlumnos(usersMap)
+        setStudents(usersMap)
         console.log(usersMap)
     }
 
-    useEffect( () => {
+    const handleChange = e => {
+        setBusqueda(e.target.value)
+        filter(e.target.value)
+    }
+
+    const resetList = () => {
+        getStudents();
+    }
+
+    const filter = (termSearch) => {
+        const resultsSearch = students.filter((elemento) => {
+            if (
+                elemento.nombre.toString().toLowerCase().includes(termSearch.toLowerCase())
+                || elemento.apellido.toString().toLowerCase().includes(termSearch.toLowerCase())
+            ) {
+                return elemento;
+            }
+        });
+        setStudents(resultsSearch)
+
+        if (termSearch === '') {
+            resetList();
+        }
+    }
+
+    useEffect(() => {
         try {
             getStudents()
         } catch (error) {
@@ -24,31 +50,33 @@ const List = () => {
     }, [])
 
     return (
-    <>
-        <NavBar />
-        <table className="table table-bordered border-primary">
+        <>
+            <NavBar />
+            <div className='d-flex p-2'>
+                <input className="form-control me-2" type="search" onChange={handleChange} value={busqueda} placeholder="Search" aria-label="Search" />
+            </div>
+            <table className="table table-bordered border-primary">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        {/* <th scope="col">#</th> */}
                         <th scope="colspan-5">Nombres</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">Edad</th>
                     </tr>
                 </thead>
-            <tbody>
+                <tbody>
                     {
-                        alumnos.map(item => (
+                        students.map(item => (
                             <tr key={item.id}>
-                                <td> {item.length} </td>
                                 <td> {item.nombre} </td>
                                 <td> {item.apellido} </td>
                                 <td> {item.edad} </td>
                             </tr>
                         ))
                     }
-            </tbody>
-        </table>
-    </>
+                </tbody>
+            </table>
+        </>
     )
 }
 

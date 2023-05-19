@@ -1,5 +1,5 @@
-import ContainerForm from "./ContainerForm";
+import ContainerList from "./ContainerList";
 
 export {
-    ContainerForm
+    ContainerList
 }

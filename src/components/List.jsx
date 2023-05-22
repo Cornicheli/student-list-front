@@ -160,37 +160,39 @@ const List = () => {
                 </button>
             </div>
             {/* Tabla de estudiantes */}
-            <table className="table table-bordered border-primary">
-                <thead>
-                    <tr>
-                        <th scope="colspan-5">Nombres</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col" onClick={orderForAge} >Edad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {
-                    
-                    filteredStudents.length > 0
-                        ? filteredStudents.map((item) => (
-                            // Restablecer la lista para cada estudiante
-                            <tr key={item.id}>
-                            <td>{item.nombre}</td>
-                            <td>{item.apellido}</td>
-                            <td>{item.edad}</td>
-                            </tr>
-                        ))
-                        : students.map((item) => (
-                            // Lista de la tabla para cada estudiante
-                            <tr key={item.id}>
-                            <td>{item.nombre}</td>
-                            <td>{item.apellido}</td>
-                            <td>{item.edad}</td>
-                            </tr>
-                        ))
-                }
-                </tbody>
-            </table>
+            <div className='container'>
+                <table className="table table-bordered border-primary">
+                    <thead>
+                        <tr>
+                            <th scope="colspan-5">Nombres</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col" onClick={orderForAge} >Edad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        
+                        filteredStudents.length > 0
+                            ? filteredStudents.map((item) => (
+                                // Restablecer la lista para cada estudiante
+                                <tr key={item.id}>
+                                <td>{item.nombre}</td>
+                                <td>{item.apellido}</td>
+                                <td>{item.edad}</td>
+                                </tr>
+                            ))
+                            : students.map((item) => (
+                                // Lista de la tabla para cada estudiante
+                                <tr key={item.id}>
+                                <td>{item.nombre}</td>
+                                <td>{item.apellido}</td>
+                                <td>{item.edad >= 18 ? 'Adulto' : 'Niño'}</td>
+                                </tr>
+                            ))
+                    }
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }

@@ -1,77 +1,53 @@
-import { Link  } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark w-100 h-35">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Ituzaingo
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDarkDropdown"
-            aria-controls="navbarNavDarkDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <ul className="navbar-nav">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDarkDropdownMenuLink"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dias de semana
-                </a>
-                <ul
-                  className="dropdown-menu dropdown-menu-dark"
-                  aria-labelledby="navbarDarkDropdownMenuLink"
-                >
-                  <li>
-                    <Link  className="dropdown-item" to="/">
-                      Lunes
-                    </Link >
-                  </li>
-                  <li>
-                    <Link  className="dropdown-item" to="/signup">
-                      Martes
-                    </Link >
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Miercoles
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Jueves
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Viernes
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Sabado
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <div className="container-fluid">
+        <h2 className="navbar-brand text-light">Gestion de Dias :</h2>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+                <NavLink className="text-light text-decoration-none" to="/lunes">
+                    Lunes
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="text-light text-decoration-none" to="/martes">
+                    Martes
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="text-light text-decoration-none" to="/miercoles">
+                    Miercoles
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="text-light text-decoration-none" to="/jueves">
+                    Jueves
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="text-light text-decoration-none" to="/viernes">
+                    Viernes
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="text-light text-decoration-none" to="/sabados">
+                    Sabados
+                </NavLink>
+            </li>
+          </ul>
+
         </div>
-      </nav>
+    </div>
+  </nav>
     </>
   );
 }

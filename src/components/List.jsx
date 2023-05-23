@@ -12,7 +12,10 @@ const List = () => {
     const [newStudent, setNewStudent] = useState({
         nombre : '',
         apellido: '',
-        edad: 0
+        edad: 0,
+        turno: '',
+        horario: '',
+        grupo: '',
     })
 
     // Obtener la lista de estudiantes desde la API al cargar el componente
@@ -112,23 +115,23 @@ const List = () => {
                             </div>
                             <div className="modal-body">
                                 {/* Formulario para agregar un nuevo estudiante */}
-                                <form className="row g-3" onSubmit={createStudent}>
+                                <form className="row g-3 justify-content-center" onSubmit={createStudent}>
 
                                     <div className="col-auto">
-                                        {/* Campo de entrada para el nombre */}
+                                        {/* Campo de entrada para la nombre */}
                                         <input type="text"
-                                            className="form-control-plaintext"
+                                            className="form-control"
                                             name='nombre' onChange={handleInputChange}
-                                            id="staticEmail2" placeholder="nombre"
+                                            id="inputPassword2" placeholder="nombre"
                                         />
-
                                     </div>
+
                                     <div className="col-auto">
-                                        {/* Campo de entrada para el apellido */}
+                                        {/* Campo de entrada para la apellido */}
                                         <input type="text"
-                                            className="form-control-plaintext"
-                                            name="apellido" onChange={handleInputChange}
-                                            id="staticEmail2" placeholder="apellido"
+                                            className="form-control"
+                                            name='apellido' onChange={handleInputChange}
+                                            id="inputPassword2" placeholder="apellido"
                                         />
                                     </div>
 
@@ -139,7 +142,45 @@ const List = () => {
                                             name='edad' onChange={handleInputChange}
                                             id="inputPassword2" placeholder="edad"
                                         />
+                                    </div>
 
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la horario */}
+                                        <input type="text"
+                                            className="form-control"
+                                            name='horario' onChange={handleInputChange}
+                                            id="inputPassword2" placeholder="horario"
+                                        />
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la turno */}
+                                        <select
+                                        className="form-select w-full" aria-label="Default select example"
+                                        name="turno" onChange={handleInputChange}
+                                        >
+
+                                        <option disabled selected>Turno</option>
+                                        <option value="mañana">Mañana</option>
+                                        <option value="tarde">Tarde</option>
+                                        <option value="noche">Noche</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la grupo */}
+                                        <select
+                                        className="form-select w-full" aria-label="Default select example"
+                                        name="grupo" onChange={handleInputChange}
+                                        >
+                                            <option disabled selected>Grupo</option>
+                                            <option value="mañana">Adultos</option>
+                                            <option value="tarde">Niños</option>
+                                            <option value="noche">Aquagym</option>
+                                            <option value="noche">Libre</option>
+
+                                        </select>
                                     </div>
 
                                     <div className="col-auto">

@@ -44,10 +44,9 @@ export default function Navbar() {
                 </NavLink>
             </li>
           </ul>
-
         </div>
-    </div>
-  </nav>
+      </div>
+    </nav>
     </>
   );
 }

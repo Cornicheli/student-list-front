@@ -5,37 +5,32 @@ const Mier = () => {
 
     return (
         <>
-        <div className="bg-aquagym h-full">
-            <NavBar/>
+            <div className="bg-aquagym h-full">
+                <NavBar/>
 
-            <div className="container p-3">
-                <table className="table table-bordered bg-dark">
+                <div className="container pt-3">
 
-                    <thead>
-                        <tr>
-                            <th className="fs-2 text-light text-center">Actividades </th>
-                        </tr>
-                    </thead>
+                            <div className="mt-3 mb-3">
+                                <h1 className="fs-2 text-light text-center"> Actividades Semanales </h1>
+                            </div>
 
-                    <tbody>
-                        <tr>
-                            <td>
-                                <NavLink className="text-decoration-none text-light fs-5">
-                                    Adultos
-                                </NavLink>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <NavLink className="text-decoration-none text-light fs-5">
-                                    Chicos
-                                </NavLink>
-                            </td>
-                        </tr>
-                    </tbody>
+                            <div className="container d-flex justify-content-evenly bg-dark">
 
-                </table>
-            </div>
+                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                        Mañana
+                                    </NavLink>
+
+                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                        Tarde
+                                    </NavLink>
+
+                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                        Noche
+                                    </NavLink>
+
+                            </div>
+
+                </div>
             </div>
         </>
     )

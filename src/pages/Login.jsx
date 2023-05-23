@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { BASE_URL } from "../api/api";
 import { NavBar } from "../components";
-import { NavLink } from "react-router-dom";
-// import { InputEmail, InputPass, Button } from "../components";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from 'sweetalert2'
 import "../assets/login.css";
 
+
 export const Login = () => {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email : '',
@@ -22,19 +25,28 @@ export const Login = () => {
   const handleOnSubmit = async (e) => {
     try {
       e.preventDefault();
-      if(!e.target.checkValidity()){
-        console.log('no enviado')
-      }else{
-        let res = await axios.post(`${BASE_URL}/auth/signin`,formData)
-        console.log(res.data)
+      let res = await axios.post(`${BASE_URL}/auth/signin`,formData)
+      console.log(res.data)
+      if(res.data.success){
+        Swal.fire({
+          title: "Inicio de sesión correcto",
+          html: "Te redirigimos a la página de inicio...",
+          timer: 2000,
+          timerProgressBar: true,
+          willClose: () => {
+            navigate('/gestiondedias')
+          },
+        })
       }
     } catch (error) {
-      console.log(error)
+      Swal.fire({
+        icon: "error",
+        title: "Hay un error...",
+        text: `Has introducido un correo o contraseña no válidos.`,
+      });
     }
-
-
     
-  };
+  }
 
   return (
     <>
@@ -74,10 +86,6 @@ export const Login = () => {
               No tenes cuenta ?{" "}
               <NavLink className="text-light" to="/signup">
                 Registrate
-              </NavLink>
-              {" "}
-              <NavLink className="text-light" to="/alumno">
-                alumno
               </NavLink>
             </p>
           </form>

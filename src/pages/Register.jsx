@@ -1,11 +1,15 @@
 import { BASE_URL } from "../api/api"
 import { useState } from "react";
 import { NavBar } from "../components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from 'sweetalert2'
 import "../assets/login.css";
 
 const Register = () => {
+
+  const navigate = useNavigate();
+
 
   const [formData, setFormData] = useState({
     nombre : '',
@@ -23,18 +27,26 @@ const Register = () => {
   const handleOnSubmit = async (e) => {
     try {
       e.preventDefault();
-      if(!e.target.checkValidity()){
-        console.log('no enviado')
-      }else{
-        let res = await axios.post(`${BASE_URL}/auth/signup`,formData)
-        console.log(res.data)
+      let res = await axios.post(`${BASE_URL}/auth/signup`,formData)
+      console.log(res.data)
+      if(res.data.success){
+        Swal.fire({
+          title: "Registro correcto",
+          html: "Te redirigimos al la página de inicio...",
+          timer: 2000,
+          timerProgressBar: true,
+          willClose: () => {
+            navigate('/')
+          },
+        })
       }
     } catch (error) {
-      console.log(error)
+      Swal.fire({
+        icon: "error",
+        title: "Hay un error...",
+        text: `Has introducido un correo o contraseña no válidos.`,
+      });
     }
-
-
-    
   };
 
   return (
@@ -94,7 +106,7 @@ const Register = () => {
                 onChange={handleOnChange}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary mb-3">
               Registrarse
             </button>
             <p className="mt-4 text-light">

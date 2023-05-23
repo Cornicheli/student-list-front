@@ -5,55 +5,32 @@ const Lun = () => {
 
     return (
         <>
-        <div className="bg-aquagym h-full">
-            <NavBar/>
+            <div className="bg-aquagym h-full">
+                <NavBar/>
 
-            <div className="container p-3">
-                <table className="table table-bordered bg-dark">
+                <div className="container pt-3">
 
-                    <thead>
-                        <tr>
-                            <th className="fs-2 text-light text-center"> Actividades de Lunes </th>
-                        </tr>
-                    </thead>
+                            <div className="mt-3 mb-3">
+                                <h1 className="fs-2 text-light text-center"> Actividades Semanales </h1>
+                            </div>
 
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div className="dropdown">
-                                    <button className="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Adultos
-                                    </button>
-                                    <ul className="dropdown-menu bg-dark p-2" aria-labelledby="dropdownMenuButton1">
-                                        <li><NavLink className="dropdown-item bg-dark p-2" href="#">Mañana</NavLink></li>
-                                        <li><NavLink className="dropdown-item bg-dark p-2" href="#">Tarde</NavLink></li>
-                                        <li><NavLink className="dropdown-item bg-dark p-2" href="#">Noche</NavLink></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="dropdown">
-                                    <button className="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Niños
-                                    </button>
-                                    <ul className="dropdown-menu bg-dark p-2" aria-labelledby="dropdownMenuButton1">
-                                        <li><NavLink className="dropdown-item bg-dark p-2" href="#">Mañana</NavLink></li>
-                                        <li><NavLink className="dropdown-item bg-dark p-2" href="#">Tarde</NavLink></li>
-                                        <li><NavLink className="dropdown-item bg-dark p-2" href="#">Noche</NavLink></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                            <div className="container d-flex justify-content-evenly bg-dark">
 
+                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                        Mañana
+                                    </NavLink>
 
-                    
+                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                        Tarde
+                                    </NavLink>
 
+                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                        Noche
+                                    </NavLink>
 
-                </table>
-            </div>
+                            </div>
+
+                </div>
             </div>
         </>
     )

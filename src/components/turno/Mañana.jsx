@@ -8,8 +8,6 @@ const Mañana = () => {
     const [students, setStudents] = useState([])
     const [filteredStudents, setFilteredStudents] = useState([]);
 
-
-
     const getStudents = async () => {
         try {
             const res = await axios.get(`${BASE_URL}/alumno/read`,)
@@ -72,7 +70,6 @@ const Mañana = () => {
                     </thead>
                     <tbody>
                     {
-                        
                         filteredStudents.length > 0
                             ? filteredStudents.map((item) => (
                                 // Restablecer la lista para cada estudiante

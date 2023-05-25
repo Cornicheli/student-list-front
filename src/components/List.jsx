@@ -208,6 +208,7 @@ const List = () => {
                             <th scope="colspan-5">Nombres</th>
                             <th scope="col">Apellido</th>
                             <th scope="col" onClick={orderForAge} >Edad</th>
+                            <th scope="col">Lista</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -228,6 +229,12 @@ const List = () => {
                                 <td>{item.nombre}</td>
                                 <td>{item.apellido}</td>
                                 <td>{item.edad >= 18 ? 'Adulto' : 'Niño'}</td>
+                                <td>
+                                    <div className='d-flex justify-content-center'>
+                                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                        <label className="form-check-label" key="defaultCheck1" />
+                                    </div>
+                                </td>
                                 </tr>
                             ))
                     }
@@ -239,21 +246,3 @@ const List = () => {
 }
 
 export default List
-
-
-
-
-    // const deleteStudent = async (id) => {
-    //     await axios.delete(`${BASE_URL}/alumno/delete/${id}`);
-    //     const filteredStudents = students.filter(student => student.id !== id);
-    //     setStudents(filteredStudents);
-    // }
-
-    // const updateStudent = async (id, updateStudent) => {
-    //     await axios.put(`${BASE_URL}/alumno/update/${id}`, updateStudent)
-    //     const updatedStudents = students.map(student => {
-    //         if(student.id === id){
-    //             return { ...student, ...updatedStudents} 
-    //         }
-    //     })
-    // }

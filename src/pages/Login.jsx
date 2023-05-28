@@ -81,7 +81,10 @@ export const Login = () => {
             </div>
             <button type="submit" className="btn btn-primary mb-3">
               Ingresar
-            </button>
+            </button> < br />
+            <NavLink className="text-light" to="/gestiondedias">
+              gestion de dias
+              </NavLink>
             <p className="mt-4 text-light">
               No tenes cuenta ?{" "}
               <NavLink className="text-light" to="/signup">

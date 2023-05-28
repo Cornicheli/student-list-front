@@ -23,13 +23,13 @@ export const GestionDeDias = () => {
                     </div>
 
                     <div className="accordion-body d-flex justify-content-center">
-                        <NavLink to="/lunes" className='text-decoration-none text-dark fs-4'>
+                        <NavLink to="/tarde" className='text-decoration-none text-dark fs-4'>
                             Adultos
                         </NavLink>
                     </div>
 
                     <div className="accordion-body d-flex justify-content-center">
-                        <NavLink to="/lunes" className='text-decoration-none text-dark fs-4'>
+                        <NavLink to="/noche" className='text-decoration-none text-dark fs-4'>
                             AquaGym
                         </NavLink>
                     </div>
@@ -181,7 +181,7 @@ export const GestionDeDias = () => {
                     </div>
 
                     <div className="accordion-body d-flex justify-content-center">
-                        <NavLink to="/lunes" className='text-decoration-none text-dark fs-4'>
+                        <NavLink to="/alumno" className='text-decoration-none text-dark fs-4'>
                             AquaGym
                         </NavLink>
                     </div>

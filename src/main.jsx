@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Login, Register, AquaGym, GestionDeDias } from "./pages/index";
 import { List } from './components/index'
 import { Lun, Mar, Mier, Jue, Vier, Sab } from "./components/dias/index"
-import { Mañana } from "./components/turno";
+import { Mañana, Tarde, Noche } from "./components/turno";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import {TableContainer} from "./container/TableContainer";
 
@@ -27,6 +27,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         {/* Gestion de Dias */}
         {/* Gestion de Turnos */}
           <Route path="/mañana" element={<Mañana />}/>
+          <Route path="/tarde" element={<Tarde />}/>
+          <Route path="/noche" element={<Noche />}/>
         {/* Gestion de Turnos */}
 
       </Routes>

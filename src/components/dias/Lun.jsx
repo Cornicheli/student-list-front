@@ -16,15 +16,15 @@ const Lun = () => {
 
                             <div className="container d-flex justify-content-evenly bg-dark">
 
-                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                    <NavLink to='/mañana' className="btn btn-outline-primary rounded text-white fs-5">
                                         Mañana
                                     </NavLink>
 
-                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                    <NavLink to='/tarde' className="btn btn-outline-primary rounded text-white fs-5">
                                         Tarde
                                     </NavLink>
 
-                                    <NavLink to='/' className="btn btn-outline-primary rounded text-white fs-5">
+                                    <NavLink to='/noche' className="btn btn-outline-primary rounded text-white fs-5">
                                         Noche
                                     </NavLink>
 

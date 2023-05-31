@@ -8,6 +8,14 @@ const AdultosM = () => {
     const [students, setStudents] = useState([])
     const [order , setOrder ] = useState('asc')
     const [filteredStudents, setFilteredStudents] = useState([]);
+    const [newStudent, setNewStudent] = useState({
+        nombre : '',
+        apellido: '',
+        edad: 0,
+        turno: '',
+        horario: '',
+        grupo: '',
+    })
 
     const getStudents = async () => {
         try {
@@ -18,6 +26,28 @@ const AdultosM = () => {
         } catch (error) {
         console.log(error)   
         }
+    }
+
+     // Crear un nuevo estudiante
+    const createStudent  = async (e) => {
+        e.preventDefault()
+        try {
+            const alumno = await axios.post(`${BASE_URL}/alumno/create`, newStudent)
+            console.log('Alumno creado:', alumno.data);
+            const createdStudent = alumno.data
+            setStudents([...students, createdStudent])
+        } catch (error) {
+            console.error('Error al crear alumno:', error);
+        }
+    }
+
+    // Actualizar el estado cuando cambian los campos del formulario de creación
+    const handleInputChange = (e) => {
+        e.preventDefault();
+        const { name, value } = e.target
+        let newStudentData = { ...newStudent, [name]: value }
+        setNewStudent(newStudentData)
+        console.log(newStudentData)
     }
 
         // Filtrar la lista de estudiantes por nombre o apellido
@@ -70,9 +100,104 @@ const AdultosM = () => {
     return (
         <div>
             <h1 className='text-center fs-1 mt-2 mb-2'>Turno mañana de Adultos</h1>
-            <label className='d-flex justify-content-center aling-items-center p-2 m-2'>
-                <input className="form-control w-75" type="search" onChange={handleChange} value={busqueda} placeholder="Search" aria-label="Search" />
-            </label>
+            <div className='d-flex p-2'>
+                {/* Modal para agregar un nuevo estudiante */}
+                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="staticBackdropLabel">Nuevo Alumno</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                {/* Formulario para agregar un nuevo estudiante */}
+                                <form className="row g-3 justify-content-center" onSubmit={createStudent}>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la nombre */}
+                                        <input type="text"
+                                            className="form-control"
+                                            name='nombre' onChange={handleInputChange}
+                                            id="inputPassword2" placeholder="nombre"
+                                        />
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la apellido */}
+                                        <input type="text"
+                                            className="form-control"
+                                            name='apellido' onChange={handleInputChange}
+                                            id="inputPassword2" placeholder="apellido"
+                                        />
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la edad */}
+                                        <input type="number"
+                                            className="form-control"
+                                            name='edad' onChange={handleInputChange}
+                                            id="inputPassword2" placeholder="edad"
+                                        />
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la horario */}
+                                        <input type="text"
+                                            className="form-control"
+                                            name='horario' onChange={handleInputChange}
+                                            id="inputPassword2" placeholder="horario"
+                                        />
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la turno */}
+                                        <select
+                                        className="form-select w-full" aria-label="Default select example"
+                                        name="turno" onChange={handleInputChange}
+                                        >
+
+                                        <option disabled selected>Turno</option>
+                                        <option value="mañana">Mañana</option>
+                                        <option value="tarde">Tarde</option>
+                                        <option value="noche">Noche</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Campo de entrada para la grupo */}
+                                        <select
+                                        className="form-select w-full" aria-label="Default select example"
+                                        name="grupo" onChange={handleInputChange}
+                                        >
+                                            <option disabled selected>Grupo</option>
+                                            <option value="mañana">Adultos</option>
+                                            <option value="tarde">Niños</option>
+                                            <option value="noche">Aquagym</option>
+                                            <option value="noche">Libre</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div className="col-auto">
+                                        {/* Botón para agregar un nuevo estudiante */}
+                                        <button type="submit" className="btn btn-primary mb-3"> Agregar </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='d-flex justify-content-evenly w-100'>
+                    {/* Campo de búsqueda */}
+                    <input className="form-control w-75" type="search" onChange={handleChange} value={busqueda} placeholder="Search" aria-label="Search" />
+                    {/* Botón para abrir el modal de creación */}
+                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Edit
+                    </button>
+                </div>
+            </div>
             <div className='p-2'>
                 <table className="table table-bordered border-primary">
                     <thead>

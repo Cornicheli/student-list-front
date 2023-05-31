@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BASE_URL } from "../api/api";
-import { NavBar } from "../components";
+// import { NavBar } from "../components";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2'
@@ -50,7 +50,7 @@ export const Login = () => {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <main className="ctn-main-login h-100 d-flex  flex-column align-items-center justify-content-center">
         <section className="main-login">
           <form className="w-75" onSubmit={handleOnSubmit}>

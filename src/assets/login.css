@@ -44,31 +44,26 @@
   border-radius: 2px white solid;
   transition: 0.5s;
 }
-
 .subtitle-login {
   height: 70px;
   text-align: center;
   color: white;
   font-size: 20px;
 }
-
-.btn-face {
-  width: 100px;
-  height: 43px;
-  background-color: #0b5ed7;
-  color: white;
-  border: none;
-  font-size: 14px;
+.ctn-main-gestion{
+  min-height: 100vh;
+  background-color: rgba(24, 68, 165, 0.74);
 }
-
+.title-gestion{
+  font-size: 2.2rem;
+  margin: 0;
+  padding: 0;
+}
+.ctn-accordion{
+}
 @media only screen and (max-width: 375px) {
   .main-login {
     transition: 0.5s;
     width: 300px;
   }
-  /* .collapse{
-        margin-left: 105px;
-        margin-top: 220px;
-        position: absolute;
-    } */
 }

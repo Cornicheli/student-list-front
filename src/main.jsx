@@ -6,7 +6,6 @@ import { Lun, Mar, Mier, Jue, Vier, Sab } from "./components/dias"
 import { Mañana, Tarde, Noche } from "./components/turno";
 import { AdultosM, AdultosT, AdultosN, NiñxsM, NiñxsT, NiñxsN, AquagymM, AquagymT, AquagymN} from "./components/grupo";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import {TableContainer} from "./container/TableContainer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,7 +15,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/signup" element={<Register />} />
         <Route path="/alumno" element={<List/>} />
         <Route path="/gestiondedias" element={<GestionDeDias/>} />
-        <Route path="/Table" element={<TableContainer/>} />
         {/* Gestion de Dias */}
           <Route path="/lunes" element={<Lun/>} />
           <Route path="/martes" element={<Mar/>} />

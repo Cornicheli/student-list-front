@@ -10,15 +10,15 @@ const Tarde = () => {
         </div>
 
         <div className="d-flex align-items-center justify-content-center flex-column">
-            <NavLink to='/AdultosT' className='bg-dark text-white text-decoration-none fs-2 m-2'>
+            <NavLink to='/AdultosT' className='bg-ligth text-dark text-decoration-none fs-2 m-2 border border-dark shadow p-2 mb-3 bg-body rounded w-50 text-center'>
                 Adulto
             </NavLink>
 
-            <NavLink to='/niñxsT' className='bg-dark text-white text-decoration-none fs-2 m-2'>
+            <NavLink to='/niñxsT' className='bg-ligth text-dark text-decoration-none fs-2 m-2 border border-dark shadow p-2 mb-3 bg-body rounded w-50 text-center'>
                 Chicxs
             </NavLink>
 
-            <NavLink to='/AquagymT' className='bg-dark text-white text-decoration-none fs-2 m-2'>
+            <NavLink to='/AquagymT' className='bg-ligth text-dark text-decoration-none fs-2 m-2 border border-dark shadow p-2 mb-3 bg-body rounded w-50 text-center'>
                 AquaGym
             </NavLink>
         </div>

@@ -68,7 +68,7 @@ const AdultosM = () => {
                 }
             }
         
-            // Manejar el cambio en el campo de búsqueda
+        // Manejar el cambio en el campo de búsqueda
         const handleChange = e => {
             setBusqueda(e.target.value)
             filter(e.target.value)

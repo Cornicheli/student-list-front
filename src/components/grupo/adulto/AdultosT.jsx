@@ -1,5 +1,6 @@
 import { useState ,useEffect } from 'react'
 import { BASE_URL } from "../../../api/api"
+import { Title } from '../../index'
 import axios from 'axios'
 
 const AdultosT = () => {
@@ -99,7 +100,7 @@ const AdultosT = () => {
     
     return (
         <div>
-            <h1 className='text-center fs-1 mt-3 mb-3'>Turno tarde de Adultos</h1>
+            <Title title='Turno tarde de Adultos' />
             <div className='d-flex p-2'>
                 {/* Modal para agregar un nuevo estudiante */}
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

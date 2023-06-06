@@ -1,5 +1,6 @@
 import { useState ,useEffect } from 'react'
 import { BASE_URL } from "../../../api/api"
+import { Title } from '../../index'
 import axios from 'axios'
 
 const NiñxsT = () => {
@@ -69,7 +70,7 @@ const NiñxsT = () => {
     
     return (
         <div>
-            <h1 className='text-center fs-1 mt-3 mb-3'>Turno tarde de Niñxs</h1>
+            <Title title='Turno tarde de Niñxs'/>
             <label className='d-flex justify-content-center aling-items-center p-2 m-2'>
                 <input className="form-control w-75" type="search" onChange={handleChange} value={busqueda} placeholder="Search" aria-label="Search" />
             </label>

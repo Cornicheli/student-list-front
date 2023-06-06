@@ -1,5 +1,6 @@
 import { useState ,useEffect } from 'react'
 import { BASE_URL } from "../../../api/api"
+import { Title } from '../../index'
 import axios from 'axios'
 
 const AdultosM = () => {
@@ -7,7 +8,8 @@ const AdultosM = () => {
     const [busqueda, setBusqueda] = useState('')
     const [students, setStudents] = useState([])
     const [order , setOrder ] = useState('asc')
-    const [filteredStudents, setFilteredStudents] = useState([]);
+    const [filteredStudents, setFilteredStudents] = useState([])
+    const [checked, setChecked] = useState({})
     const [newStudent, setNewStudent] = useState({
         nombre : '',
         apellido: '',
@@ -50,29 +52,51 @@ const AdultosM = () => {
         console.log(newStudentData)
     }
 
-        // Filtrar la lista de estudiantes por nombre o apellido
-        const filter = (termSearch) => {
-            const resultSearch = students.filter((elemento) => {
-                if (
-                    elemento.nombre.toString().toLowerCase().includes(termSearch.toLowerCase()) ||
-                    elemento.apellido.toString().toLowerCase().includes(termSearch.toLowerCase())
-                ) {
-                    return elemento
-                }
-            })
-                
-                if (termSearch === '') {
-                    setFilteredStudents([]); // Restablecer la lista de estudiantes filtrados
-                } else {
-                    setFilteredStudents(resultSearch)
-                }
+    // Capturar el estado checked cuando se toma la lista
+    const handleInputChecked = (e) => {
+        const { name, value } = e.target
+        setChecked((prevChecked) => ({
+            ...prevChecked,
+            [name]: value,
+        }))
+        console.log(checked)
+    }
+
+    const handleSubmitStudents = (e) => {
+        e.preventDefault();
+        const alumnosSeleccionados = Object.values(checked)
+        .filter((item) => item.checked)
+        .map((item) => ({
+            nombre: item.nombre,
+            apellido: item.apellido,
+        }));
+        // Hacer algo con la lista de alumnos seleccionados
+        console.log(alumnosSeleccionados);
+    };
+
+    // Filtrar la lista de estudiantes por nombre o apellido
+    const filter = (termSearch) => {
+        const resultSearch = students.filter((elemento) => {
+            if (
+                elemento.nombre.toString().toLowerCase().includes(termSearch.toLowerCase()) ||
+                elemento.apellido.toString().toLowerCase().includes(termSearch.toLowerCase())
+            ) {
+                return elemento
             }
-        
-        // Manejar el cambio en el campo de búsqueda
-        const handleChange = e => {
-            setBusqueda(e.target.value)
-            filter(e.target.value)
+        })
+            
+            if (termSearch === '') {
+                setFilteredStudents([]); // Restablecer la lista de estudiantes filtrados
+            } else {
+                setFilteredStudents(resultSearch)
+            }
         }
+    
+    // Manejar el cambio en el campo de búsqueda
+    const handleChange = e => {
+        setBusqueda(e.target.value)
+        filter(e.target.value)
+    }
 
     // Ordenar la lista de estudiantes por edad en orden ascendente o descendente
     const orderForAge = () => {
@@ -99,7 +123,7 @@ const AdultosM = () => {
     
     return (
         <div>
-            <h1 className='text-center fs-1 mt-2 mb-2'>Turno mañana de Adultos</h1>
+            <Title title='Turno mañana de Adultos'/>
             <div className='d-flex p-2'>
                 {/* Modal para agregar un nuevo estudiante */}
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -221,8 +245,15 @@ const AdultosM = () => {
                                 <td>{item.turno}</td>
                                 <td>
                                     <div className='d-flex justify-content-center'>
-                                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                        <label className="form-check-label" key="defaultCheck1" />
+                                        <input
+                                            className='form-check-input'
+                                            type='checkbox'
+                                            id={item.id}
+                                            name={item.id}
+                                            checked={checked[item.id] ? checked[item.id].checked : false}
+                                            onChange={handleInputChecked}
+                                        />
+                                        <label className='form-check-label' htmlFor={item.id}></label>
                                     </div>
                                 </td>
                                 </tr>
@@ -237,15 +268,29 @@ const AdultosM = () => {
                                 <td>{item.edad}</td>
                                 <td>{item.turno}</td>
                                 <td>
-                                    <div className='d-flex justify-content-center'>
-                                        <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                        <label className="form-check-label" key="defaultCheck1" />
-                                    </div>
+                                <div className="form-check">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckIndeterminate"
+                                        checked={checked[item.id] ? checked[item.id].checked : false}
+                                        onChange={handleInputChecked}
+                                    />
+                                    <label className="form-check-label" htmlFor="flexCheckIndeterminate">
+                                    </label>
+                                </div>
                                 </td>
                             </tr>
                             ))
                     }
                     </tbody>
+                    <div className="col-auto">
+                        {/* Botón para enviar el formulario */}
+                        <button type="button" className="btn btn-primary mb-3" onClick={handleSubmitStudents}>
+                            Enviar
+                        </button>
+                    </div>
                 </table>
             </div>
         </div>

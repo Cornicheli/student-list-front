@@ -1,6 +1,8 @@
 import { useState ,useEffect } from 'react'
 import { BASE_URL } from "../../../api/api"
+import { Title } from '../../index'
 import axios from 'axios'
+
 const Aquagym = () => {
  
     const [busqueda, setBusqueda] = useState('')
@@ -99,7 +101,7 @@ const Aquagym = () => {
     
     return (
         <div>
-            <h1 className='text-center fs-1 mt-3 mb-3'>Turno mañana de Aqua-Gym</h1>
+            <Title title='Turno mañana de Aqua-Gym'/>
             <div className='d-flex p-2'>
                 {/* Modal para agregar un nuevo estudiante */}
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
